@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,8 +9,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, CheckCircle, Star, Clock, Shield, Zap } from "lucide-react";
-
-const LOGO_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAADAFBMVEX//ev/+uf+9uT78+D68eD58eD58uX59OT79+r/9e7/8+v/9/D/9/P/9fH/8ej/8Ob97+H97N/86tv86dr85db84c/83c383Mz829X728v72sT72MP71r/70rX7zqf7yZz7x5P7xI/7wov7wIj7v4P7vHf7ulr7t1n7sVD7rk/7qz/7qTP7pS/7ow/7nQb7mAT7lAL7kQH7jQH7igD7hQD7gQD7fgD7egD7dwD7cwD7bgD7aQD7ZQD7YAD7XAD7WAD7VgD7UwD7TgD7SgD7RwD7QgD7PwD7OAD7NQD7MAD7LQD7KgD7JQD7IAD7HgD7GgD7FQD7EAD7DAD7CgD7BQD7AAD6/v76+vr6+Pn6+Pf6+PX6+PL6+PD59/f59/b59/X59/L59/H58+z58ur58ej58Ob58OX58OL57+H57N/56tv56dr55db54c/53c3529X528v52sT52MP51r/50rX5zqf5yZz5x5P5xI/5wov5wIj5v4P5vHf5ulr5t1n5sVD5rk/5qz/5qTP5pS/5ow/5nQb5mAT5lAL5kQH5jQH5igD5hQD5gQD5fgD5egD5dwD5cwD5bgD5aQD5ZQD5YAD5XAD5WAD5VgD5UwD5TgD5SgD5RwD5QgD5PwD5OAD5NQD5MAD5LQD5KgD5JQD5IAD5HgD5GgD5FQD5EAD5DAD5CgD5BQD5AAD49/f49/b49/X49/L49/H48+z48ur48ej48Ob48OX48OL47+H47N/46tv46dr45db44c/43c3429X428v42sT42MP41r/40rX4zqf4yZz4x5P4xI/4wov4wIj4v4P4vHf4ulr4t1n4sVD4rk/4qz/4qTP4pS/4ow/4nQb4mAT4lAL4kQH4jQH4igD4hQD4gQD4fgD4egD4dwD4cwD4bgD4aQD4ZQD4YAD4XAD4WAD4VgD4UwD4TgD4SgD4RwD4QgD4PwD4OAD4NQD4MAD4LQD4KgD4JQD4IAD4HgD4GgD4FQD4EAD4DAD4CgD4BQD4AAD3/Pz3+/v39/f39/b39/X39/L39/H38+z38ur38ej38Ob38OX38OL37+H37N/36tv36dr35db34c/33c3229X328v32sT32MP31r/30rX3zqf3yZz3x5P3xI/3wov3wIj3v4P3vHf3ulr3t1n3sVD3rk/3qz/3qTP3pS/3ow/3nQb3mAT3lAL3kQH3jQH3igD3hQD3gQD3fgD3egD3dwD3cwD3bgD3aQD3ZQD3YAD3XAD3WAD3VgD3UwD3TgD3SgD3RwD3QgD3PwD3OAD3NQD3MAD3LQD3KgD3JQD3IAD3HgD3GgD3FQD3EAD3DAD3CgD3BQD3AAD2+vr2+Pn2+Pf2+PX2+PL2+PD29/f29/b29/X29/L29/H28+z28ur28ej28Ob28OX28OL27+H27N/26tv26dr25db24c/23c3229X228v22sT22MP21r/20rX2zqf2yZz2x5P2xI/2wov2wIj2v4P2vHf2ulr2t1n2sVD2rk/2qz/2qTP2pS/2ow/2nQb2mAT2lAL2kQH2jQH2igD2hQD2gQD2fgD2egD2dwD2cwD2bgD2aQD2ZQD2YAD2XAD2WAD2VgD2UwD2TgD2SgD2RwD2QgD2PwD2OAD2NQD2MAD2LQD2KgD2JQD2IAD2HgD2GgD2FQD2EAD2DAD2CgD2BQD2AAD1/Pz1+/v19/f19/b19/X19/L19/H18+z18ur18ej18Ob18OX18OL17+H17N/16tv16dr15db14c/13c311AAA";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -44,43 +44,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img 
-              src={LOGO_DATA_URI} 
-              alt="Hardhat Webworks logo" 
-              className="h-12 w-auto"
-            />
-            <span className="text-xl font-bold text-primary">Hardhat Webworks</span>
-          </div>
-          
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="#services" className="text-foreground hover:text-secondary transition-colors">Services</a>
-            <a href="#about" className="text-foreground hover:text-secondary transition-colors">About</a>
-            <a href="#pricing" className="text-foreground hover:text-secondary transition-colors">Pricing</a>
-            <div className="flex items-center space-x-3">
-              <a href="tel:971-772-6943" className="text-primary hover:text-secondary transition-colors font-medium">
-                <Phone className="inline w-4 h-4 mr-1" />971-772-6943
-              </a>
-              <Button onClick={scrollToQuote} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                Get a Free Quote
-              </Button>
-            </div>
-          </nav>
-
-          <div className="md:hidden">
-            <Button onClick={scrollToQuote} size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Free Quote
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-primary">
+      <Header />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-foreground">
         <div className="container max-w-7xl mx-auto px-4 text-center">
           <Badge className="mb-6 bg-accent text-accent-foreground">
             <Clock className="w-4 h-4 mr-1" />
@@ -107,7 +75,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-4"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-primary text-lg px-8 py-4"
               asChild
             >
               <a href="tel:971-772-6943">
@@ -117,7 +85,7 @@ const Index = () => {
             </Button>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm opacity-80">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm opacity-80 bg-foreground/10 rounded-full px-8 py-4 inline-flex">
             <span className="flex items-center">
               <Clock className="w-4 h-4 mr-1" />24/7 support
             </span>
@@ -208,16 +176,16 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="p-8">
+            <Card className="p-8 bg-card text-card-foreground">
               <CardContent className="pt-0">
-                <h3 className="text-2xl font-bold mb-4 text-secondary">Website Upgrades</h3>
+                <h3 className="text-2xl font-bold mb-4 text-secondary">Website Revitalization</h3>
                 <p className="text-muted-foreground mb-6">
-                  Have a site already? We make it look current, load fast, and work great on phones. We fix broken pages, clean up wording, and improve credibility.
+                  Have a site already? We'll take your current website and transfer it to our platform, making it modern, credible, and mobile-friendly while striving to keep the same theme if desired.
                 </p>
                 <ul className="space-y-2 text-sm">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-accent" />Platform migration with theme preservation</li>
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-accent" />Modern design updates</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-accent" />Speed optimization</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-accent" />Content improvements</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-accent" />Mobile responsiveness improvements</li>
                 </ul>
               </CardContent>
             </Card>
@@ -250,28 +218,34 @@ const Index = () => {
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-foreground">How It Works</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-              <h3 className="text-xl font-semibold mb-3">Quick Call</h3>
+              <div className="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Quick Call</h3>
               <p className="text-muted-foreground">Tell us your services and goals.</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-              <h3 className="text-xl font-semibold mb-3">Build</h3>
-              <p className="text-muted-foreground">We write the words, design the pages, and set up the forms.</p>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Questionnaire</h3>
+              <p className="text-muted-foreground">We send you a detailed form to capture all the features, services, and information needed for your site.</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-              <h3 className="text-xl font-semibold mb-3">Launch</h3>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Build</h3>
+              <p className="text-muted-foreground">We write the words, design the pages, and set up the forms based on your questionnaire responses.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Launch</h3>
               <p className="text-muted-foreground">Connect your domain and Google Business Profile. Go live—often within 72 hours.</p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
-              <h3 className="text-xl font-semibold mb-3">Support</h3>
+              <div className="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">5</div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Support</h3>
               <p className="text-muted-foreground">30 days of edits and clear advice on next steps.</p>
             </div>
           </div>
@@ -375,10 +349,18 @@ const Index = () => {
             </Card>
           </div>
           
-          <div className="bg-background p-6 rounded-lg mb-8">
-            <p className="text-sm text-muted-foreground mb-4">
-              30-day money-back guarantee • 72-hour launch option available
-            </p>
+          <div className="bg-background/50 p-6 rounded-lg mb-8 border border-accent/20">
+            <div className="flex items-center justify-center gap-6 text-sm">
+              <span className="flex items-center gap-2 text-accent font-semibold">
+                <Shield className="w-4 h-4" />
+                30-day money-back guarantee
+              </span>
+              <span className="text-muted-foreground">•</span>
+              <span className="flex items-center gap-2 text-accent font-semibold">
+                <Clock className="w-4 h-4" />
+                72-hour launch option available
+              </span>
+            </div>
           </div>
           
           <Button onClick={scrollToQuote} size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
@@ -403,14 +385,14 @@ const Index = () => {
             <Card className="p-6">
               <CardContent className="pt-0">
                 <h3 className="text-lg font-semibold mb-3 text-primary">Do I need to write the words?</h3>
-                <p className="text-muted-foreground">No. We can write them for you in plain language.</p>
+                <p className="text-muted-foreground">No. We will take the form and make your additions to the website from that information.</p>
               </CardContent>
             </Card>
             
             <Card className="p-6">
               <CardContent className="pt-0">
                 <h3 className="text-lg font-semibold mb-3 text-primary">Can you work with my current site?</h3>
-                <p className="text-muted-foreground">Yes. We do upgrades to make it modern, credible, and mobile-friendly.</p>
+                <p className="text-muted-foreground">Yes. We will take the current website and transfer it to our website platform and make the modern, credible, and mobile-friendly upgrades while striving to keep the same theme, if desired.</p>
               </CardContent>
             </Card>
             
@@ -664,39 +646,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12">
-        <div className="container max-w-7xl mx-auto px-4">
-          <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
-            <div className="flex items-center space-x-3">
-              <img 
-                src={LOGO_DATA_URI} 
-                alt="Hardhat Webworks logo" 
-                className="h-12 w-auto"
-              />
-              <div>
-                <div className="text-lg font-bold">Hardhat Webworks</div>
-                <div className="text-sm opacity-80">Websites built for trades</div>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center space-y-2 md:items-end">
-              <div className="flex items-center space-x-4">
-                <a href="tel:971-772-6943" className="hover:text-accent transition-colors">
-                  <Phone className="w-4 h-4 inline mr-1" />971-772-6943
-                </a>
-                <a href="mailto:hardhatwebworks@gmail.com" className="hover:text-accent transition-colors">
-                  <Mail className="w-4 h-4 inline mr-1" />hardhatwebworks@gmail.com
-                </a>
-              </div>
-              <div className="flex space-x-4 text-xs opacity-60">
-                <a href="#" className="hover:opacity-100">Privacy</a>
-                <a href="#" className="hover:opacity-100">Terms</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
